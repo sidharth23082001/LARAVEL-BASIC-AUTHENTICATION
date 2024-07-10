@@ -57,3 +57,8 @@ Run the migration
 ```
 php artisan migrate
 ```
+Run the Project By
+
+```
+http://127.0.0.1:8000/login
+```
