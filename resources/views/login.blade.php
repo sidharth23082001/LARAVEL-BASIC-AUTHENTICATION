@@ -7,9 +7,11 @@
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <form action="{{ route('do.login') }}" method="POST" name="myForm" onsubmit="return validateForm()">
             @csrf
-              @if(session()->has('message'))
-                <p class="danger" style="color:red">{{ session()->get('message') }}</p>
-              @endif
+              @if ($message = Session::get('success'))
+              <div class="alert alert-secondary">
+                <p>{{ $message }}</p>
+              </div>
+              @endif
               <h1 class="row justify-content-center align-items-center h-100">LOGIN</h1>
                 <div class="form-group">
                     <input  class="form-control form-control-lg" name="email" placeholder="User email" type="text">

@@ -3,34 +3,32 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+
 
 class UserController extends Controller
 {
 
-    public function login(Request $request){
+    public function login(){
         if(auth()->check()){
-            return redirect()->route('dashboard');
+            return redirect('dashboard');
         }else{
         return view('login');
         }
     }
-    public function dashboard(){
-        if(auth()->check()){
-            return redirect()->route('dashboard');;
-        }else{
-        return view('login');
-        }
-    }
+    
 
     public function dologin(){
        if(auth()->attempt([
         'email' => request('email'),
         'password' => request('password')
         ])){
-            return redirect()->route('dashboard');
+            //return redirect()->action('DashboardController@index');
+            return redirect('dashboard');
         }
         else{
-            return redirect()->route('login')->with('message','Invalid User');
+            $returnMessage = "Invalid User";
+            return redirect()->route('login')->with('success', $returnMessage);;
         }
     }
 
@@ -49,8 +47,9 @@ public function registeruser(Request $request){
     'email' => request('email'),
     'password' => request('password')
     ]);
-    return redirect()->route('register')->with('message','New User Created Sucessfully,go back to SignIn');
-}
+    $returnMessage = "User Created Succesfully";
+            return redirect()->route('login')->with('success', $returnMessage);;
+    }
 
 public function logout(){
     auth()->logout();

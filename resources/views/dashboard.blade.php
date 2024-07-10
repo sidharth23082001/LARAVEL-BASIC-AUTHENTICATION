@@ -22,6 +22,6 @@
             </div>
         </div>
     </div>
-<a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+
 
 @endsection
