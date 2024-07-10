@@ -4,20 +4,25 @@ User registration, login, and logout functionality using Laravel's built-in auth
 ## Register page 
 - <img src="public/images/register.jpg" alt="Register" width="75%"/>
 </br>
+
 ## Login page 
 - <img src="public/images/login.jpg" alt="Login" width="75%"/>
 </br>
+
 ## Dashboard page 
 - <img src="public/images/dashboard.jpg" alt="Login" width="75%"/>
 </br>
+
 ## unique alphanumeric user ID
 <p style="font-weight: bold;">
 Here I used md5(time()) to generate the unique alphanumeric user_id when each time a user is registered the md5() function produces a hash on current timestamp which result in a combination of alphanumeric string which would be unique each time because it is hashing the timestamp which is always diffrent.
 </p>
 </br>
+
 ## How to setup
 </br>
-## Install
+
+### Install
 
 Clone repo
 
